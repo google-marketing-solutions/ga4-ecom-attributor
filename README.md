@@ -22,7 +22,7 @@ JSON file contains tags and custom templates that needs to be imported and confi
 
 Follow these steps to properly set up the solution:
 * Join [this group](https://groups.google.com/g/ga4-ecom-attributor) to get access to JSON file
-* [Download the JSON file] (https://github.com/googlestaging/ga4-ecom-attributor/blob/main/ga4-ecom-attributor.json)
+* [Download the JSON file](https://github.com/googlestaging/ga4-ecom-attributor/blob/main/ga4-ecom-attributor.json)
 
 Once you download the JSON file, you are ready to import it in web GTM container.
 
