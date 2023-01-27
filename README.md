@@ -56,9 +56,12 @@ In this section, you need to select which information you want to collect:
   * Same event name that you provide in this input field needs to be added as a trigger for Cookie creator tag
 
 * Product List attribution
-  * By selecting this option, you need to provide exact event name you use to push Item List information into Data Layer. For example, if you push List information to Data Layer with event called "productClick", this is what you need to provide in the input field
-  * In case if you selected Universal Analytics as Data Layer type, you will have to select one of the radio button options to provide explanation on which ecommerce action you are pushing List information to Data Layer (Product List Click, Detail View or Add to Cart)
+  * By selecting this option, you need to provide exact event names you use to push Item List information into Data Layer. In total, there are three input fields. In some cases, webshops have List information can be available on multiple ecommerce actions (e.g. Product List Click, Detail View and Add to Cart).
+If you have List information available on multiple ecommerce actions, please fill out corresponding fields.
+  * In case if you have List information available only on one ecommerce action (e.g. Product List Click), provide event name only in that field. Rest of the fields leave empty.
   * Same event name that you provide in this input field needs to be added as a trigger for Cookie creator tag
+
+**IMPORTANT: In order for solution to work, you must specify at least one ecommerce event which contains list information in Data Layer.**
 
 ##### 3. Purchase event 
 
