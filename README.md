@@ -34,8 +34,8 @@ To import JSON file, go to [Google Tag Manager](https://tagmanager.google.com/#/
 * For workspace, select "Existing" and then select one of your existing workspaces where you want to import the tags
 * For import option, select "Merge" -> "Rename conflicting tags, triggers, and variables"
 
-Click on "Confirm" button once you are ready to import the file. Once you import JSON file, you should have these tags and variables imported:
-![Imported tags and varialbes in GTM](https://github.com/google/ga4-ecom-attributor/blob/main/images/GTM-imported.png)
+Click on "Confirm" button once you are ready to import the file. Once you import JSON file, you should have these tags and variables imported:\
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/GTM-imported.png" width="500" height="530">
 
 ## Configure Cookie creator tag
 
@@ -89,8 +89,9 @@ For example:
 * If you also selected to track Product list attribution, and in input field you specified event name "select_item", this event also needs to be added as trigger
 * Event you specified as a Purchase event needs to be added as trigger
 
-So, depending on your tag configuration, in total you should have 2-5 triggers on Cookie creator tag.
-![Cookie Creator tag setup](https://github.com/google/ga4-ecom-attributor/blob/main/images/cookie-creator-tag.png)
+So, depending on your tag configuration, in total you should have 2-5 triggers on Cookie creator tag:\
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/cookie-creator-tag.png" width="500" height="645">
+
 
 #### How tag works and what is it's purpose?
 Based on options you selected, tag will do the following:
@@ -121,11 +122,11 @@ For example, if on purchase event tag you have transaction_id, currency, value a
 
 NOTE: These changes only needs to be done on ecommerce event tags! You don't have to do these changes on tags that you use to send promotion data to GA4 (Promotion Impression and Promotion Click events).
 
-To summarize, you should made these changes to all ecommerce event tags in GTM (except promotion tags):
-![ecommerce even tags in GTM](https://github.com/google/ga4-ecom-attributor/blob/main/images/adjusting-ecommerce-tags.png)
+To summarize, you should made these changes to all ecommerce event tags in GTM (except promotion tags):\
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adjusting-ecommerce-tags.png" width="500" height="535">
 
-And on purchase tag, you should add event-level purchase related parameters. As value, create data layer variable to capture corresponding information from dataLayer:
-![purchase event tag in GTM](https://github.com/google/ga4-ecom-attributor/blob/main/images/adding-event-level-purchase-parameters.png)
+And on purchase tag, you should add event-level purchase related parameters. As value, create data layer variable to capture corresponding information from dataLayer:\
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adding-event-level-purchase-parameters.png" width="500" height="505">
 
 
 
@@ -142,8 +143,9 @@ If this is the case for you, you need to provide additional 4 parameters to each
 * creative_slot
 
 
-So, for each ecommerce event tag, you should add these 4 parameters, and as value provide variables you imported with JSON file:
-![Promotion data in ecommerce event tags](https://github.com/google/ga4-ecom-attributor/blob/main/images/promo-data.png)
+So, for each ecommerce event tag, you should add these 4 parameters, and as value provide variables you imported with JSON file:\
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/promo-data.png" width="500" height="430">
+
 NOTE: it is not necessary to do add these parameters in Promotion tags (view_promotion and select_promotion event tags)!
 
 
@@ -163,7 +165,7 @@ If you followed instructions above, you should have solution ready. Let's quickl
     *  add `items` event parameter, and as value provide variable that you imported: `[custom] GA4 Items array`
     *  In purchase event tag, add necessary information (depending which info you have in dataLayer): `transaction_id`, `value`, `currency`, `shipping`, `tax`, `coupon`
 
-3. **Optional - Add promotion parameters to send promotion data to GA$**
+3. **Optional - Add promotion parameters to send promotion data to GA4**\
 NOTE: this needs to be done only if you have Promotion data tracking on your website (view_promotion and select_promotion events) **AND** if you set up in Cookie creator tag to collect Promotion information in cookie.
     * If this is true, then in every ecommerce event tag, add 4 event parameters: `promotion_id`, `promotion_name`, `creative_name`, `creative_slot` and as value assign corresponding variables that you imported from JSON file
     * This change needs to be done only on ecommerce event tags, not necessary to do it on Promotion tags.
