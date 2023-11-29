@@ -110,7 +110,14 @@ The changes that you need to make are exactly the same, it only depends on how m
 
 * Disable "Enable ecommerce data" option in every ecommerce tag - since we need to modify items array before we send data to GA4, we need to disable option to take data automatically from dataLayer
 * add `items` event parameter and as value provide `[custom] GA4 Items array` variable you imported in GTM - We need to provide items array and our custom variable which will build items array with all List attribution data
-* Adjust purchase event tag - for purchase event tag, since it will not take data automatically from data layer anymore, you need to manually specify all event level purchase-related parameters that you have in dataLayer:
+
+NOTE: These changes only needs to be done on ecommerce event tags! You don't have to do these changes on tags that you use to send promotion data to GA4 (Promotion Impression and Promotion Click events).
+
+To summarize, you should made these changes to all ecommerce event tags in GTM (except promotion tags):\
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adjusting-ecommerce-tags.png" width="500" height="535">
+
+
+* And you have to adjust purchase event tag - for purchase event tag, since it will not take data automatically from data layer anymore, you need to manually specify all event level purchase-related parameters that you have in dataLayer:
   *  `transaction_id`
   *  `value`
   *  `currency`
@@ -119,13 +126,7 @@ The changes that you need to make are exactly the same, it only depends on how m
   *  `coupon`
    
 For example, if on purchase event tag you have transaction_id, currency, value and shipping info, provide those parameters in purchase tag in GTM.
-
-NOTE: These changes only needs to be done on ecommerce event tags! You don't have to do these changes on tags that you use to send promotion data to GA4 (Promotion Impression and Promotion Click events).
-
-To summarize, you should made these changes to all ecommerce event tags in GTM (except promotion tags):\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adjusting-ecommerce-tags.png" width="500" height="535">
-
-And on purchase tag, you should add event-level purchase related parameters. As value, create data layer variable to capture corresponding information from dataLayer:\
+Example how you should add event-level purchase related parameters. As value, create data layer variable to capture corresponding information from dataLayer:\
 <img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adding-event-level-purchase-parameters.png" width="500" height="505">
 
 
