@@ -17,7 +17,7 @@ JSON file contains tags and custom templates that needs to be imported and confi
 
 Follow these steps to properly set up the solution:
 * Join [this group](https://groups.google.com/g/ga4-ecom-attributor) to get access to JSON file (any potential updates will be published in the group)
-* [Download the JSON file](https://github.com/google/ga4-ecom-attributor/blob/main/ga4-ecom-attributor.json)
+* [Download the JSON file]([https://github.com/google/ga4-ecom-attributor/blob/main/ga4-ecom-attributor.json](https://github.com/google/ga4-ecom-attributor/blob/e99b2ce9caf269ce67b24f2899a5f39c13467bc6/ecom-attributor-web-GTM/ga4-ecom-attributor.json))
 * Follow implementation guide (explained below) or use [PDF file](https://github.com/google/ga4-ecom-attributor/blob/main/GA4_ecom_attributor_implementation_guide.pdf)
 
 Once you download the JSON file, you are ready to import it in web GTM container.
@@ -31,7 +31,7 @@ To import JSON file, go to [Google Tag Manager](https://tagmanager.google.com/#/
 * For import option, select "Merge" -> "Rename conflicting tags, triggers, and variables"
 
 Click on "Confirm" button once you are ready to import the file. Once you import JSON file, you should have these tags and variables imported:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/GTM-imported.png" width="500" height="530">
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/GTM-imported.png" width="500" height="530">
 
 ## Configure Cookie creator tag
 
@@ -86,7 +86,7 @@ For example:
 * Event you specified as a Purchase event needs to be added as trigger
 
 So, depending on your tag configuration, in total you should have 2-5 triggers on Cookie creator tag:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/cookie-creator-tag.png" width="500" height="645">
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/cookie-creator-tag.png" width="500" height="645">
 
 
 #### How tag works and what is it's purpose?
@@ -110,7 +110,7 @@ The changes that you need to make are exactly the same, it only depends on how m
 NOTE: These changes only needs to be done on ecommerce event tags! You don't have to do these changes on tags that you use to send promotion data to GA4 (Promotion Impression and Promotion Click events).
 
 To summarize, you should made these changes to all ecommerce event tags in GTM (except promotion tags):\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adjusting-ecommerce-tags.png" width="500" height="535">
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/adjusting-ecommerce-tags.png" width="500" height="535">
 
 
 * And you have to adjust purchase event tag - for purchase event tag, since it will not take data automatically from data layer anymore, you need to manually specify all event level purchase-related parameters that you have in dataLayer:
@@ -123,7 +123,7 @@ To summarize, you should made these changes to all ecommerce event tags in GTM (
    
 For example, if on purchase event tag you have transaction_id, currency, value and shipping info, provide those parameters in purchase tag in GTM.
 Example how you should add event-level purchase related parameters. As value, create data layer variable to capture corresponding information from dataLayer:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/adding-event-level-purchase-parameters.png" width="500" height="505">
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/adding-event-level-purchase-parameters.png" width="500" height="505">
 
 
 
@@ -141,7 +141,7 @@ If this is the case for you, you need to provide additional 4 parameters to each
 
 
 So, for each ecommerce event tag, you should add these 4 parameters, and as value provide variables you imported with JSON file:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/images/promo-data.png" width="500" height="430">
+<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/promo-data.png" width="500" height="430">
 
 NOTE: it is not necessary to do add these parameters in Promotion tags (view_promotion and select_promotion event tags)!
 
