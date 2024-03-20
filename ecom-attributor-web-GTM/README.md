@@ -11,14 +11,14 @@ JSON file contains tags and custom templates that needs to be imported and confi
 * It is compatible both with Universal Analytics and GA4 Data Layer
 * If you are planning to use this solution for Item List attribution:
 	*  Item ID needs to be available on every ecommerce event you fire to Data Layer (excluding Promotion tracking)
-	*  List information needs to be available on Product List Click, Product Detail View or Add2Cart event
+	*  List information needs to be available on select_item, view_item or add_to_cart event
 
 ## How to set up the solution
 
 Follow these steps to properly set up the solution:
 * Join [this group](https://groups.google.com/g/ga4-ecom-attributor) to get access to JSON file (any potential updates will be published in the group)
 * [Download the JSON file](https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/ecom-attributor-web-GTM.json)
-* Follow implementation guide (explained below) or download [PDF file](https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/ecom-attributor-web-GTM-implementation-guide.pdf)
+* Follow implementation guide (explained below) or download [PDF file with step by step instructions](https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/ecom-attributor-web-GTM-implementation-guide.pdf)
 
 Once you download the JSON file, you are ready to import it in web GTM container.
 
@@ -31,7 +31,7 @@ To import JSON file, go to [Google Tag Manager](https://tagmanager.google.com/#/
 * For import option, select "Merge" -> "Rename conflicting tags, triggers, and variables"
 
 Click on "Confirm" button once you are ready to import the file. Once you import JSON file, you should have these tags and variables imported:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/GTM-imported.png" width="500" height="530">
+<p align="center"><img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/GTM-imported.png" width="500" height="530"></p>
 
 ## Configure Cookie creator tag
 
@@ -54,9 +54,9 @@ In this section, you need to select which information you want to collect:
   * Same event name that you provide in this input field needs to be added as a trigger for Cookie creator tag
 
 * Product List attribution
-  * By selecting this option, you need to provide exact event names you use to push Item List information into Data Layer. In total, there are three input fields. In some cases, webshops have List information can be available on multiple ecommerce actions (e.g. Product List Click, Detail View and Add to Cart).
+  * By selecting this option, you need to provide exact event names you use to push Item List information into Data Layer. In total, there are three input fields. In some cases, List information can be available on multiple ecommerce actions (e.g. select_item, view_item and add_to_cart events).
 If you have List information available on multiple ecommerce actions, please fill out corresponding fields.
-  * In case if you have List information available only on one ecommerce action (e.g. Product List Click), provide event name only in that field. Rest of the fields leave empty.
+  * In case if you have List information available only on one ecommerce action (e.g. select_item), provide event name only in that field. Rest of the fields leave empty.
   * Same event name that you provide in this input field needs to be added as a trigger for Cookie creator tag
 
 **IMPORTANT: In order for solution to work, you must specify at least one ecommerce event which contains list information in Data Layer.**
@@ -86,16 +86,16 @@ For example:
 * Event you specified as a Purchase event needs to be added as trigger
 
 So, depending on your tag configuration, in total you should have 2-5 triggers on Cookie creator tag:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/cookie-creator-tag.png" width="500" height="645">
+<p align="center"><img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/cookie-creator-tag.png" width="500" height="645"></p>
 
 
 #### How tag works and what is it's purpose?
 Based on options you selected, tag will do the following:
 * If you selected to collect Promotion attribution - When user clicks on Promotion, Cookie creator tag will fire (Promotion trigger you added to Cookie creator tag). It will check Data Layer, take Promotion data and store it in the cookie called "ga4_promo". If you click on multiple promotions, data is collected only for last clicked promotion.
 
-* If you selected to collect Product List data - when user clicks on product which contains List information, Cookie creator tag will fire (trigger you added to Cookie creator tag). It will check Data Layer, take List information and store it in the cookies called "ga4_list_{{item ID}}". For every product, new cookie will be created. In case if purchased product had "ga4_list_{{item ID}}" cookie, cookie will be deleted on a purchased event. 
+* If you selected to collect Product List data - when user clicks on item which contains List information, Cookie creator tag will fire (trigger you added to Cookie creator tag). It will check Data Layer, take List information and store it in the cookies called "ga4_list_{{item ID}}". For every item, new cookie will be created. In case if purchased item had "ga4_list_{{item ID}}" cookie, cookie will be deleted on a purchased event. 
 
-* On purchase event, it will delete "ga4_promo" cookie if it exists in the browser. It will check all purchased products, and if any of purchased products had "ga4_list_{{item ID}}" cookie in the browser, it will delete the cookie. 
+* On purchase event, it will delete "ga4_promo" cookie if it exists in the browser. It will check all purchased items, and if any of purchased items had "ga4_list_{{item ID}}" cookie in the browser, it will delete the cookie. 
 
 
 ## Modify your GA4 ecommerce event tags
@@ -110,7 +110,7 @@ The changes that you need to make are exactly the same, it only depends on how m
 NOTE: These changes only needs to be done on ecommerce event tags! You don't have to do these changes on tags that you use to send promotion data to GA4 (Promotion Impression and Promotion Click events).
 
 To summarize, you should made these changes to all ecommerce event tags in GTM (except promotion tags):\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/adjusting-ecommerce-tags.png" width="500" height="535">
+<p align="center"><img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/adjusting-ecommerce-tags.png" width="500" height="535"></p>
 
 
 * And you have to adjust purchase event tag - for purchase event tag, since it will not take data automatically from data layer anymore, you need to manually specify all event level purchase-related parameters that you have in dataLayer:
@@ -123,7 +123,7 @@ To summarize, you should made these changes to all ecommerce event tags in GTM (
    
 For example, if on purchase event tag you have transaction_id, currency, value and shipping info, provide those parameters in purchase tag in GTM.
 Example how you should add event-level purchase related parameters. As value, create data layer variable to capture corresponding information from dataLayer:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/adding-event-level-purchase-parameters.png" width="500" height="505">
+<p align="center"><img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/adding-event-level-purchase-parameters.png" width="500" height="505"></p>
 
 
 
@@ -133,7 +133,7 @@ You need to do these modifications only if you:\
 a) have Promotion data tracking on your website (promo Impression and promo Click) **AND**\
 b) if you set up in Cookie creator tag to collect Promotion information in cookie
 
-If this is the case for you, you need to provide additional 4 parameters to each ecommerce even tag in GTM (not necessary to do changes on Promotion Impression and Promotion Click tags):
+If this is the case for you, you need to provide additional 4 parameters to each ecommerce event tag in GTM (it is not needed to do these changes on Promotion Impression and Promotion Click tags):
 * promotion_id
 * promotion_name
 * creative_name
@@ -141,7 +141,7 @@ If this is the case for you, you need to provide additional 4 parameters to each
 
 
 So, for each ecommerce event tag, you should add these 4 parameters, and as value provide variables you imported with JSON file:\
-<img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/promo-data.png" width="500" height="430">
+<p align="center"><img src="https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/images/promo-data.png" width="500" height="430"></p>
 
 NOTE: it is not necessary to do add these parameters in Promotion tags (view_promotion and select_promotion event tags)!
 
@@ -153,7 +153,7 @@ If you followed instructions above, you should have solution ready. Let's quickl
 1. **Cookie creator tag**
     *  In dropdown, you specified which Data Layer you use on your website
     *  If you selected Promotion attribution option, you provided exact event name you use to push Promotion Click information in Data Layer. Same event should be added as trigger to Cookie creator tag.
-    *  If you selected Product List attirbution option, you provided exact event name you use to push List information in Data Layer. Same event should be added as trigger to Cookie creator tag.
+    *  If you selected Product List attribution option, you provided exact event name you use to push List information in Data Layer. Same event should be added as trigger to Cookie creator tag.
     *  You provided Purchase event. Same event should be added as trigger to Cookie creator tag.
     *  Triggers for Cookie creator tag are added based on previous options you selected.
 
@@ -171,6 +171,12 @@ In case if everything is configured, you can proceed with testing and deploying 
 
 ## FAQ
 
+**Q: Are there any cookie restrictions applying for this solution?**\
+**A:** Regular 1st party browser cookie restrictions will apply. If you have cross-domain journey on your website (e.g. user journey starts on domainA and purchase is made on domainB), then 1st party cookies won't be shared across domains. Also, certain browsers has limits how many cookies can be created per domain, maximum number of cookie size etc.
+
+**Q: Does solution work with Advanced Consent Mode?**\
+**A:** Yes, solution will work with advanced Consent Mode implementation, with unconsented pings.
+
 **Q: Which List information will be collected?**\
 **A:** If you have Universal Analytics Data Layer, it will collect List name (`list` parameter) and Item Position in the list (`position` parameter).\
 If you have GA4 Data Layer, it will collect List Name (`item_list_name`), List ID (`item_list_id`) and Item position (`index`).
@@ -179,14 +185,14 @@ If you have GA4 Data Layer, it will collect List Name (`item_list_name`), List I
 **A:** If you have Universal Analytics Data Layer, it will collect Promotion `id`, `name`, `creative` and `position` parameters.\
 In GA4 Data Layer, it will collect `promotion_id`, `promotion_name`, `creative_name` and `creative_slot` parameters.
 
-**Q: What if I do not have one of the collected parameters in Data Layer (e.g. I don't have `position` parameter for my products)?**\
+**Q: What if I do not have one of the collected parameters in Data Layer (e.g. I don't have `position` parameter for my items)?**\
 **A:** Missing parameter simply won't be collected and information won't be sent to GA4.
 
-**Q: I have product-level custom dimensions/metrics. Will they still be sent to GA4?**\
-**A:** Yes, any product-level custom dimensions/metrics will still be sent to GA4.
+**Q: I have item-level custom dimensions/metrics. Will they still be sent to GA4?**\
+**A:** Yes, any item-level custom dimensions/metrics will still be sent to GA4.
 
 **Q: Does List information needs to be available inside Items array or can it be also provided inside ecommerce object (for UA, inside ActionField object)?**\
-**A:** Solution is developed to work in both cases. First, it will check inside Items/Products array. If List information is not availble, it will check inside ecommerce object (for UA actionField object).
+**A:** Solution is developed to work in both cases. First, it will check inside Items array. If List information is not availble, it will check inside ecommerce object (for UA actionField object).
 
 **Q: Why I need to have Item ID on every ecommerce event that is fired on my website?**\
 **A:** Item ID is required on every ecommerce event (except promotions events) because this is the key how List information is stored in the cookie and taken from the cookie. If you don't have Item ID on one of your ecommerce events (e.g. item ID missing on `checkout` event), then List information won't be retrieved from cookie and sent to GA4.
