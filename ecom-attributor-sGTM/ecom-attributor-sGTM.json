@@ -1,0 +1,810 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2024-03-20 09:36:25",
+    "containerVersion": {
+        "path": "accounts/6197971020/containers/166878305/versions/0",
+        "accountId": "6197971020",
+        "containerId": "166878305",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6197971020/containers/166878305",
+            "accountId": "6197971020",
+            "containerId": "166878305",
+            "name": "sandbox-demo-server",
+            "publicId": "GTM-WM3FJFND",
+            "usageContext": [
+                "SERVER"
+            ],
+            "fingerprint": "1695808485703",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6197971020/containers/166878305/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": true,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": true
+            },
+            "tagIds": [
+                "GTM-WM3FJFND"
+            ],
+            "taggingServerUrls": [
+                "https://gtm-wm3fjfnd-zdq3y.uc.r.appspot.com"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "tagId": "113",
+                "name": "Ecom Attributor - Write to Firestore",
+                "type": "cvt_166878305_112",
+                "notes": "This Tag is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "attributionExpiration",
+                        "value": "7"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "promoAttribution",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "hashedID",
+                        "value": "{{Identifier - hashed}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "firestoreLookup",
+                        "value": "{{FS Lookup - attribution}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "firestoreCollectionPath",
+                        "value": "{{Constant - FS Collection Path}}"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "delete",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "projectId",
+                        "value": "{{Constant - GCP Project ID}}"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "itemListAttribution",
+                        "value": "true"
+                    }
+                ],
+                "fingerprint": "1710853486285",
+                "parentFolderId": "116",
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "98",
+                "name": "FS Lookup - attribution",
+                "type": "fs",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "collectionPath",
+                        "value": "{{Constant - FS Collection Path}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "queriesSimpleTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryKey",
+                                        "value": "id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryOperator",
+                                        "value": "=="
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryValue",
+                                        "value": "{{Identifier - hashed}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "keyPath",
+                        "value": "attribution"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setProjectId",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "operation",
+                        "value": "query"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "projectId",
+                        "value": "{{Constant - GCP Project ID}}"
+                    }
+                ],
+                "fingerprint": "1710508051541",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "101",
+                "name": "Ecom Attributor - Items array",
+                "type": "cvt_166878305_100",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "firestoreLookup",
+                        "value": "{{FS Lookup - attribution}}"
+                    }
+                ],
+                "fingerprint": "1710508065961",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "104",
+                "name": "FS Lookup - creative_slot",
+                "type": "fs",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "collectionPath",
+                        "value": "{{Constant - FS Collection Path}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "queriesSimpleTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryKey",
+                                        "value": "id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryOperator",
+                                        "value": "=="
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryValue",
+                                        "value": "{{Identifier - hashed}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "keyPath",
+                        "value": "attribution.promotion_data.creative_slot"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setProjectId",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "operation",
+                        "value": "query"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "projectId",
+                        "value": "{{Constant - GCP Project ID}}"
+                    }
+                ],
+                "fingerprint": "1710508037045",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "105",
+                "name": "FS Lookup - creative_name",
+                "type": "fs",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "collectionPath",
+                        "value": "{{Constant - FS Collection Path}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "queriesSimpleTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryKey",
+                                        "value": "id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryOperator",
+                                        "value": "=="
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryValue",
+                                        "value": "{{Identifier - hashed}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "keyPath",
+                        "value": "attribution.promotion_data.creative_name"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setProjectId",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "operation",
+                        "value": "query"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "projectId",
+                        "value": "{{Constant - GCP Project ID}}"
+                    }
+                ],
+                "fingerprint": "1710508043768",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "106",
+                "name": "FS Lookup - promotion_id",
+                "type": "fs",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "collectionPath",
+                        "value": "{{Constant - FS Collection Path}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "queriesSimpleTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryKey",
+                                        "value": "id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryOperator",
+                                        "value": "=="
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryValue",
+                                        "value": "{{Identifier - hashed}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "keyPath",
+                        "value": "attribution.promotion_data.promotion_id"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setProjectId",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "operation",
+                        "value": "query"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "projectId",
+                        "value": "{{Constant - GCP Project ID}}"
+                    }
+                ],
+                "fingerprint": "1710508028888",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "107",
+                "name": "FS Lookup - promotion_name",
+                "type": "fs",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "collectionPath",
+                        "value": "{{Constant - FS Collection Path}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "queriesSimpleTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryKey",
+                                        "value": "id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryOperator",
+                                        "value": "=="
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "queryValue",
+                                        "value": "{{Identifier - hashed}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "keyPath",
+                        "value": "attribution.promotion_data.promotion_name"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setProjectId",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "operation",
+                        "value": "query"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "projectId",
+                        "value": "{{Constant - GCP Project ID}}"
+                    }
+                ],
+                "fingerprint": "1710508022983",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "115",
+                "name": "Identifier - hashed",
+                "type": "cvt_166878305_114",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "identifier",
+                        "value": "{{Identifier - Event Data - client_id}}"
+                    }
+                ],
+                "fingerprint": "1710508120595",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "117",
+                "name": "Constant - GCP Project ID",
+                "type": "c",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "sandbox-demo-boilerplate"
+                    }
+                ],
+                "fingerprint": "1710757090728",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "118",
+                "name": "Identifier - Event Data - client_id",
+                "type": "ed",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "keyPath",
+                        "value": "client_id"
+                    }
+                ],
+                "fingerprint": "1710754268704",
+                "parentFolderId": "116",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "variableId": "119",
+                "name": "Constant - FS Collection Path",
+                "type": "c",
+                "notes": "This Variable is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "ecommerce_attributor"
+                    }
+                ],
+                "fingerprint": "1710508079323",
+                "parentFolderId": "116",
+                "formatValue": {}
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "folderId": "116",
+                "name": "Ecom Attributor",
+                "fingerprint": "1710511521314"
+            }
+        ],
+        "fingerprint": "1710927385634",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6197971020/containers/166878305/versions/0?apiLink=version",
+        "customTemplate": [
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "templateId": "100",
+                "name": "Ecom Attributor - Items array",
+                "fingerprint": "1710508188965",
+                "templateData": "___TERMS_OF_SERVICE___\n\nBy creating or modifying this file you agree to Google Tag Manager's Community\nTemplate Gallery Developer Terms of Service available at\nhttps://developers.google.com/tag-manager/gallery-tos (or such other URL as\nGoogle may provide), as modified from time to time.\n\n\n___INFO___\n\n{\n  \"type\": \"MACRO\",\n  \"id\": \"cvt_temp_public_id\",\n  \"version\": 1,\n  \"securityGroups\": [],\n  \"displayName\": \"Ecom Attributor - Items array\",\n  \"description\": \"This Template is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor\",\n  \"containerContexts\": [\n    \"SERVER\"\n  ]\n}\n\n\n___TEMPLATE_PARAMETERS___\n\n[\n  {\n    \"type\": \"LABEL\",\n    \"name\": \"infoLabel\",\n    \"displayName\": \"This variable creates Items array. In case if item has List or Promotion data stored in Firestore, this variable will grab that data from Firestore and add it into Items array. \\u003c/br\\u003e\\u003c/br\\u003e\\n\\nAs an input, provide Firestore Lookup variable that will fetch List and Promo data from Firestore.\"\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"firestoreSource\",\n    \"displayName\": \"Firestore Lookup variable\",\n    \"groupStyle\": \"NO_ZIPPY\",\n    \"subParams\": [\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"firestoreLookup\",\n        \"displayName\": \"\",\n        \"simpleValueType\": true,\n        \"alwaysInSummary\": true,\n        \"help\": \"\",\n        \"valueValidators\": [\n          {\n            \"type\": \"NON_EMPTY\"\n          }\n        ]\n      }\n    ],\n    \"help\": \"In this field provide Firestore Lookup variable you created, that fetches List and Promotion attribution information from Firestore.\"\n  }\n]\n\n\n___SANDBOXED_JS_FOR_SERVER___\n\n/**\n * @license\n * Copyright 2024 Google LLC\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n\nconst getEventData = require('getEventData');\nconst itemsInFirestore = data.firestoreLookup ? data.firestoreLookup.items_data : [];\nlet items = getEventData('items');\nlet itemsArray;\n\n// check every item in Event Data, if it matches with item in Firestore, replace List and Promotion data with Firestore data\nif(items) {\n  items.forEach(i => {\n    itemsInFirestore.forEach(x => {\n      if(i.item_id === x.item_id){\n        i.item_list_id = i.item_list_id || x.item_list_id || undefined;\n        i.item_list_name = i.item_list_name || x.item_list_name || undefined;\n        i.index = i.index || x.index || undefined;\n        i.creative_name = i.creative_name || x.creative_name || undefined;\n        i.creative_slot = i.creative_slot || x.creative_slot || undefined;\n        i.promotion_id = i.promotion_id || x.promotion_id || undefined;\n        i.promotion_name = i.promotion_name || x.promotion_name || undefined;\n        i.location_id = i.location_id || x.location_id || undefined;      \n      }\n    });\n  });\n  itemsArray = items ? items : undefined;\n}\n\nreturn itemsArray;\n\n\n___SERVER_PERMISSIONS___\n\n[\n  {\n    \"instance\": {\n      \"key\": {\n        \"publicId\": \"read_event_data\",\n        \"versionId\": \"1\"\n      },\n      \"param\": [\n        {\n          \"key\": \"keyPatterns\",\n          \"value\": {\n            \"type\": 2,\n            \"listItem\": [\n              {\n                \"type\": 1,\n                \"string\": \"items\"\n              }\n            ]\n          }\n        },\n        {\n          \"key\": \"eventDataAccess\",\n          \"value\": {\n            \"type\": 1,\n            \"string\": \"specific\"\n          }\n        }\n      ]\n    },\n    \"clientAnnotations\": {\n      \"isEditedByUser\": true\n    },\n    \"isRequired\": true\n  }\n]\n\n\n___TESTS___\n\nscenarios: []\n\n\n___NOTES___\n\n\n\n\n"
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "templateId": "112",
+                "name": "Ecom Attributor - Write to Firestore",
+                "fingerprint": "1710851001222",
+                "templateData": "___TERMS_OF_SERVICE___\n\nBy creating or modifying this file you agree to Google Tag Manager's Community\nTemplate Gallery Developer Terms of Service available at\nhttps://developers.google.com/tag-manager/gallery-tos (or such other URL as\nGoogle may provide), as modified from time to time.\n\n\n___INFO___\n\n{\n  \"type\": \"TAG\",\n  \"id\": \"cvt_temp_public_id\",\n  \"version\": 1,\n  \"securityGroups\": [],\n  \"displayName\": \"Ecom Attributor - Write to Firestore\",\n  \"brand\": {\n    \"id\": \"brand_dummy\",\n    \"displayName\": \"\"\n  },\n  \"description\": \"This Template is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor\",\n  \"containerContexts\": [\n    \"SERVER\"\n  ]\n}\n\n\n___TEMPLATE_PARAMETERS___\n\n[\n  {\n    \"type\": \"LABEL\",\n    \"name\": \"Info\",\n    \"displayName\": \"This tag is used to grab Item List and Promotion data from Event Model. As a output, it will write only necessary information in Firestore. \\u003c/br\\u003e \\u003c/br\\u003e \\nTag will store following parameters in Firestore:\\u003c/br\\u003e\\u003cli\\u003e item_id (which is used as a key) for items data \\u003c/br\\u003e \\u003cli\\u003e item_list_id \\u003cli\\u003e item_list_name \\u003cli\\u003e index \\u003cli\\u003e promotion_id \\u003cli\\u003e promotion_name \\u003cli\\u003e creative_name \\u003cli\\u003e creative_slot \\u003cli\\u003e location_id \\u003c/br\\u003e \\u003c/br\\u003e  \\nIf certain parameters are not available in your Event Model, they simply won\\u0027t be added to the Firestore.\\n\\u003c/br\\u003e  \\u003c/br\\u003e\\nIf you decide to store Item List information in Firestore, List data will be stored on one of the following events (or all 3 events, in case if you have List information on all three events): \\u003cb\\u003eselect_item, view_item or add_to_cart\\u003c/b\\u003e. Depending on which of these events you have List information, add this event as a trigger to this tag.\\n\\u003c/br\\u003e \\u003c/br\\u003e \\nIf you decide to store Promotion information in Firestore, Promo data will be store on \\u003cb\\u003eselect_promotion\\u003c/b\\u003e event. In this case, you need to add select_promotion event as a trigger to this tag.\\n\\n\\u003c/br\\u003e \\u003c/br\\u003e \\n\\u003cb\\u003eNOTE:\\u003c/b\\u003e Solution \\u003cb\\u003edoesn\\u0027t support\\u003c/b\\u003e storing List data on view_item_list event and Promo data to store on view_promotion event.\\n\\n\\n\\u003c/br\\u003e  \\u003c/br\\u003e\\nBelow, you have to provide data for your GCP project, identifier and select which events on your website contain Item list and Promotion information.\"\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"gcpData\",\n    \"displayName\": \"Google Cloud Project data\",\n    \"groupStyle\": \"NO_ZIPPY\",\n    \"subParams\": [\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"projectId\",\n        \"displayName\": \"GCP Project ID\",\n        \"simpleValueType\": true,\n        \"help\": \"GCP Project ID can be found by visiting GCP page. In upper left corner click on dropdown, select GCP project where you want to set up Ecommerce Attributor and next to the project name you can find project ID.\",\n        \"valueValidators\": [\n          {\n            \"type\": \"NON_EMPTY\"\n          }\n        ]\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"firestoreCollectionPath\",\n        \"displayName\": \"Firestore Collection Path\",\n        \"simpleValueType\": true,\n        \"valueValidators\": [\n          {\n            \"type\": \"NON_EMPTY\"\n          }\n        ],\n        \"help\": \"In GCP Firestore, after you create database (in Native mode), you need to create new collection.\\u003cbr\\u003e In this field provide collection name.\"\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"firestoreLookup\",\n        \"displayName\": \"Firestore Lookup Variable\",\n        \"simpleValueType\": true,\n        \"valueValidators\": [\n          {\n            \"type\": \"NON_EMPTY\"\n          }\n        ],\n        \"help\": \"Provide the name of Firestore Lookup variable which will check if there is already some items stored in Firestore collection.\"\n      }\n    ],\n    \"help\": \"In this field provide Firestore Lookup variable you created, that fetches Item and Promotion attribution information from Firestore.\"\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"identifier\",\n    \"displayName\": \"Hashed identifier used for storing data per user/device\",\n    \"groupStyle\": \"NO_ZIPPY\",\n    \"subParams\": [\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"hashedID\",\n        \"displayName\": \"Hashed identifier\",\n        \"simpleValueType\": true,\n        \"valueValidators\": [\n          {\n            \"type\": \"NON_EMPTY\"\n          }\n        ],\n        \"help\": \"Input should be \\u003ci\\u003eIdentifier - hashed\\u003c/i\\u003e variable you imported with this solution, variable with hashed identifier.\"\n      }\n    ]\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"attributionCollectionGroup\",\n    \"displayName\": \"Which information do you want to collect and store in Firestore\",\n    \"groupStyle\": \"NO_ZIPPY\",\n    \"subParams\": [\n      {\n        \"type\": \"CHECKBOX\",\n        \"name\": \"itemListAttribution\",\n        \"checkboxText\": \"Item List Attribution\",\n        \"simpleValueType\": true,\n        \"alwaysInSummary\": true,\n        \"help\": \"Select this option if you want to store Item List data in Firestore.\\u003c/br\\u003e\\u003c/br\\u003e For example, if you send Item List information with one of the following events: \\u003cb\\u003eselect_item\\u003c/b\\u003e, \\u003cb\\u003eview_item\\u003c/b\\u003e or \\u003cb\\u003eadd_to_cart\\u003c/b\\u003e, if you mark this checkbox Item list information will be collected and stored in Firestore. \\u003cbr\\u003e\\u003c/br\\u003e\\n\\u003cb\\u003eNOTE:\\u003c/b\\u003e In case if there is also Promo data available with item, this will be also collected and stored in Firestore.\"\n      },\n      {\n        \"type\": \"CHECKBOX\",\n        \"name\": \"promoAttribution\",\n        \"checkboxText\": \"Promotion Attribution\",\n        \"simpleValueType\": true,\n        \"alwaysInSummary\": true,\n        \"help\": \"Select this option if you want to store Promotion data in Firestore.\\u003c/br\\u003e\\u003c/br\\u003e For example, if you have \\u003cb\\u003eselect_promotion\\u003c/b\\u003e event, if you mark this checkbox, it will store Promotion data in Firestore.\\n \\u003cbr\\u003e\\u003c/br\\u003e\\n\\u003cb\\u003eNOTE:\\u003c/b\\u003e In case if there is also Item List data available on select_promotion event, this will be also collected and stored in Firestore.\"\n      },\n      {\n        \"type\": \"GROUP\",\n        \"name\": \"attributionTime\",\n        \"displayName\": \"Attribution time\",\n        \"groupStyle\": \"NO_ZIPPY\",\n        \"subParams\": [\n          {\n            \"type\": \"LABEL\",\n            \"name\": \"infoAttribution\",\n            \"displayName\": \"Configure how long you want to keep data in Firestore for each user (expiration field in Firestore). By default it is 7 days. This means if user interacts with Item inside the List or with Promotion, List and Promotion data will be kept in Firestore for 7 days after user’s last ecommerce interaction. In case if user during the 7 days window makes a purchase of item which he had interaction with, List and Promotion data from Firestore will be sent to GA4 and Revenue data will be properly attributed.\\n\\u003c/br\\u003e\\u003c/br\\u003e\\nExpiration field is used by Firestore TTL policy, to automatically delete user data after 7 days (default setting), if Item/Promotion data wasn’t refreshed in Firestore during those 7 days.\\n\\u003c/br\\u003e\\u003c/br\\u003e\\n\\u003cb\\u003eNote:\\u003c/b\\u003e decreasing the attribution time (e.g. to only 1 day), could increase Firestore costs due to the more frequent number of TTL policy deletes.\\n\\u003c/br\\u003e\\u003c/br\\u003e\\nIf you want to have shorter/longer expiration date, adjust number of days in input field. If you want to keep it as default, provide number 7 as input.\"\n          },\n          {\n            \"type\": \"TEXT\",\n            \"name\": \"attributionExpiration\",\n            \"displayName\": \"\",\n            \"simpleValueType\": true,\n            \"valueValidators\": [\n              {\n                \"type\": \"POSITIVE_NUMBER\"\n              },\n              {\n                \"type\": \"NON_EMPTY\"\n              }\n            ],\n            \"defaultValue\": 7,\n            \"enablingConditions\": []\n          }\n        ],\n        \"help\": \"Expiration date that will be added to the \\\"expiration\\\" field inside the Firestore document, for each user.\"\n      }\n    ],\n    \"help\": \"Select which information you would like to collect and store in Firestore\"\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"deleteData\",\n    \"displayName\": \"Delete List and Promotion data on purchase event (recommended)\",\n    \"groupStyle\": \"NO_ZIPPY\",\n    \"subParams\": [\n      {\n        \"type\": \"CHECKBOX\",\n        \"name\": \"delete\",\n        \"checkboxText\": \"Remove List and Promo data for purchased items from Firestore on purchase event\",\n        \"simpleValueType\": true,\n        \"alwaysInSummary\": true\n      }\n    ],\n    \"help\": \"Enable this checkbox if you want to delete Item List and Promotion information for purchased items after user makes a purchase. \\u003c/br\\u003e\\u003c/br\\u003e\\nWhen purchase event is fired, it will delete Promotion data and Item List data only for purchased items, in case if they had any Item List information stored in Firestore.\"\n  }\n]\n\n\n___SANDBOXED_JS_FOR_SERVER___\n\n/**\n * @license\n * Copyright 2024 Google LLC\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *     http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n\n// Necessary APIs\nconst getTimestampMillis = require('getTimestampMillis');\nconst Math = require('Math');\nconst getEventData = require('getEventData');\nconst logToConsole = require('logToConsole');\nconst getGoogleAuth = require('getGoogleAuth');\nconst JSON = require('JSON');\nconst sendHttpRequest = require('sendHttpRequest');\n\n// get data from input fields and event data\nconst itemsInFirestore = data.firestoreLookup ? data.firestoreLookup : [];\nconst itemsArrayInFirestore = itemsInFirestore.items_data ? itemsInFirestore.items_data : ['No item data'];\nconst promoArrayInFirestore = itemsInFirestore.promotion_data ? itemsInFirestore.promotion_data : 'No promo data';\nconst firestoreCollectionPath = data.firestoreCollectionPath;\nconst attributionExpiration = data.attributionExpiration;\nconst event_name = getEventData('event_name');\nlet items = getEventData('items');\nlet el_index = getEventData('index');\nlet el_item_list_name = getEventData('item_list_name');\nlet el_item_list_id = getEventData('item_list_id');\nlet el_creative_name = getEventData('creative_name');\nlet el_creative_slot = getEventData('creative_slot');\nlet el_promotion_id = getEventData('promotion_id');\nlet el_promotion_name = getEventData('promotion_name');\nlet el_location_id = getEventData('location_id');\n\n\n// get state of checkboxes in template tag\nconst itemListAttribution = data.itemListAttribution;\nconst promoAttribution = data.promoAttribution;\nconst deleteDataBox = data.delete;\nconst projectId = data.projectId;\n\n// hashing client ID with hex encoding\nconst hashedId = data.hashedID;\nconst fullCollectionPath = firestoreCollectionPath + \"/\" + hashedId;\n\n// Converts an integer to a string with leading zeros\nfunction pad(num, size) {\n  num = num.toString();\n  while (num.length < size) num = \"0\" + num;\n  return num;\n}\n\nconst millisecondsPerDay = 86400000;\nconst millisecondsPerHour = 3600000;\nconst millisecondsPerMinute = 60000;\n\nconst TTLdays = attributionExpiration; // TODO: Read from paramters\nconst TTLmilliseconds = TTLdays * millisecondsPerDay;\n\nfunction convertToISODatetime(timestamp) {\n  // Takes an integer representing the elapsed Milliseconds since January 1, 1970 00:00 and converts it to a UTC timestamp string.\n  // Based on https://github.com/python/cpython/blob/main/Lib/_pydatetime.py\n  \n  //daysBeforeYear(1970), as 1970-01-01 is the reference  for timestamp\n  const daysBeforeYear1970 = 719162; \n  // Number of days in a block of 400, 100 and 4 years\n  const daysIn400 = 146097;\n  const daysIn100 = 36524;\n  const daysIn4 = 1461;\n  // days after 1970 until today\n  const daysSince1970 = Math.floor(timestamp / millisecondsPerDay);\n\n  // number of days since year 0 (anchoring at year 0 makes all calculations much easier)\n  let daysSinceYear0 = daysSince1970 + daysBeforeYear1970;\n  // calculate number of blocks of 400 years between year 0 and given year\n  const num400YearBlocks = Math.floor(daysSinceYear0 / daysIn400);\n  // days remaining when excluding blocks of 400 days\n  daysSinceYear0 = daysSinceYear0 % daysIn400;\n\n  // calculate number of blocks of 100 years in the remaining years\n  const num100YearBlocks = Math.floor(daysSinceYear0 / daysIn100);\n  daysSinceYear0 = daysSinceYear0 % daysIn100;\n\n  // calculate number of blocks of 4 years in the remainder\n  const num4YearBlocks = Math.floor(daysSinceYear0 / daysIn4);\n  daysSinceYear0 = daysSinceYear0 % daysIn4;\n\n  const singleYears = Math.floor(daysSinceYear0 / 365);\n  daysSinceYear0 = daysSinceYear0 % 365;\n\n  const year = num400YearBlocks * 400 + num100YearBlocks * 100 + num4YearBlocks * 4 + singleYears + 1;\n\n  const isLeapyear = singleYears == 3 && (num4YearBlocks != 24 || num100YearBlocks == 3);\n  // lower bound estimate of the month (as some months have less than 31 days). Estimate is still at most off by 1 month\n  // (since, on Dec 1 in a non-leap year, the day is 335, and ceil(335/31) = ceil(10.81) = 11 when it should be 12)\n  var month = Math.ceil(daysSinceYear0 / 31);\n\n  const daysUpToMonth = [-1, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];\n  var actualDaysUpToMonth = daysUpToMonth[month] + (month >= 2 && isLeapyear);\n  // Check if estimate of current month was off by 1 month\n  if (actualDaysUpToMonth <= daysSinceYear0) {\n    month = month + 1;\n  }\n\n  const daysPrecedingMonth = daysUpToMonth[month - 1] + (month > 2 && isLeapyear);\n\n  const day = (daysSinceYear0 - daysPrecedingMonth) + 1;\n  let milliseconds = timestamp % millisecondsPerDay;\n  \n  const hour = Math.floor(milliseconds / millisecondsPerHour);\n  milliseconds = milliseconds % millisecondsPerHour;\n  const minute = Math.floor(milliseconds / millisecondsPerMinute);\n  milliseconds = milliseconds % millisecondsPerMinute;\n  const second = milliseconds / 1000;\n\n  const isoString = pad(year, 4) + '-' + pad(month, 2) + '-' + pad(day, 2) + 'T' + pad(hour, 2) + ':' + pad(minute, 2) + ':' + pad(second, 2) + 'Z';\n  return isoString;\n}\n\nfunction wrapForFirestore(x) {\n  const type = typeof x;\n  if (type == 'object') {\n    if (x.length >= 0) {\n      return wrapArrayForFirestore(x);\n    } else {\n      return wrapObjectForFirestore(x);\n    }\n  }\n\n  if (type == 'string') {\n    return wrapStringForFirestore(x);\n  }\n\n  if (type == 'number') {\n    return wrapNumberForFirestore(x);\n  }\n\n  if (type == 'bigint') {\n    return wrapBigintForFirestore(x);\n  }\n}\n\nfunction wrapStringForFirestore(str) {\n  return { stringValue: str };\n}\n\nfunction wrapTimestampForFirestore(ts) {\n  return { timestampValue: ts };\n}\n\nfunction wrapNumberForFirestore(num) {\n  return { doubleValue: num };\n}\n\nfunction wrapBigintForFirestore(int) {\n  return { integerValue: int };\n}\n\n\nfunction wrapObjectForFirestore(obj) {\n  for (var key in obj) {\n    obj[key] = wrapForFirestore(obj[key]);\n  }\n  return { mapValue: { fields: obj } };\n}\n\nfunction wrapArrayForFirestore(arr) {\n  arr = arr.map(x => wrapForFirestore(x));\n  return { arrayValue: { values: arr } };\n}\n\n// Looking for information on item level, if not available check on event level. In case if it is not available then set undefined value\nfunction buildItemsArray(product) {\n  return {\n    item_id: product.hasOwnProperty('item_id') ? product.item_id : undefined,\n    index: (product.hasOwnProperty('index')) ? (product.index.toString()) : ((el_index) ? (el_index.toString()) : undefined),\n    item_list_name: (product.hasOwnProperty('item_list_name')) ? (product.item_list_name) : ((el_item_list_name) ? (el_item_list_name) : undefined),\n    item_list_id: (product.hasOwnProperty('item_list_id')) ? (product.item_list_id) : ((el_item_list_id) ? (el_item_list_id) : undefined),\n    creative_name: (product.hasOwnProperty('creative_name')) ? (product.creative_name) : ((el_creative_name) ? (el_creative_name) : undefined),\n    creative_slot: (product.hasOwnProperty('creative_slot')) ? (product.creative_slot) : ((el_creative_slot) ? (el_creative_slot) : undefined),\n    promotion_id: (product.hasOwnProperty('promotion_id')) ? (product.promotion_id) : ((el_promotion_id) ? (el_promotion_id) : undefined),\n    promotion_name: (product.hasOwnProperty('promotion_name')) ? (product.promotion_name) : ((el_promotion_name) ? (el_promotion_name) : undefined),\n    location_id: (product.hasOwnProperty('location_id')) ? (product.location_id) : ((el_location_id) ? (el_location_id) : undefined)\n  };\n}\n\n\n// Function for writing data into the Firestore\nfunction writeToFirestore(collectionPath, input, projectId) {\n\n  const auth = getGoogleAuth({\n    scopes: ['https://www.googleapis.com/auth/datastore']\n  });\n\n  const body = JSON.stringify(input);\n\n  return sendHttpRequest('https://firestore.googleapis.com/v1/projects/' + projectId + '/databases/(default)/documents/' + collectionPath,\n    { authorization: auth, method: 'PATCH', timeout: 500, headers: { \"Content-Type\": \"application/json\" } },\n    body).then((result) => {\n      if (result.statusCode >= 200 && result.statusCode < 300) {\n        data.gtmOnSuccess();\n      } else {\n        data.gtmOnFailure();\n      }\n    });\n}\n\nlet itemsFromEvent = [];\nlet uniqueItems = [];\nlet promo_data;\n\n// prepare data in a structured way for Firestore\nif ((itemListAttribution && ((event_name === 'select_item') || (event_name === 'view_item') || (event_name === 'add_to_cart'))) ||\n  (promoAttribution && (event_name === 'select_promotion'))) {\n  \n  if (!items && event_name === 'select_promotion'){  \n        promo_data = {\n          promotion_id: el_promotion_id ? el_promotion_id : undefined,\n          promotion_name: el_promotion_name ? el_promotion_name : undefined,\n          creative_name: el_creative_name ? el_creative_name : undefined,\n          creative_slot: el_creative_slot ? el_creative_slot : undefined,\n          location_id: el_location_id ? el_location_id : undefined\n        };\n}\n  else {\n  items.forEach(product => {\n    let item = buildItemsArray(product);\n    itemsFromEvent.push(item);\n  });\n\n  itemsFromEvent.forEach(x => {\n    let itemExistInFirestore = false;\n\n    itemsArrayInFirestore.forEach(i => {\n      // If item from event data is the same as item from firestore and item_id exists\n      if (i.item_id === x.item_id && x.item_id !== undefined) {\n        itemExistInFirestore = true;\n\n        i.item_list_id = x.item_list_id || i.item_list_id || undefined;\n        i.item_list_name = x.item_list_name || i.item_list_name || undefined;\n        i.index = (x.index) ? (x.index.toString()) : ((i.index) ? (i.index.toString()) : undefined);\n        i.creative_name = x.creative_name || i.creative_name || undefined;\n        i.creative_slot = x.creative_slot || i.creative_slot || undefined;\n        i.promotion_id = x.promotion_id || i.promotion_id || undefined;\n        i.promotion_name = x.promotion_name || i.promotion_name || undefined;\n        i.location_id = x.location_id || i.location_id || undefined;\n      }\n    });\n    // If item from event data doesn't exist in Firestore currently and item_id exists in event data\n    if (!itemExistInFirestore && x.item_id !== undefined) {\n      uniqueItems.push(x);\n    }\n\n    // If it is select_promotion event, item doesn't exist in Firestore and it doesn't have item_id, then store only promotion data      \n    else if (!itemExistInFirestore && x.item_id === undefined && event_name === 'select_promotion') {\n      items.forEach(promo => {\n        promo_data = {\n          promotion_id: (promo.hasOwnProperty('promotion_id')) ? (promo.promotion_id) : ((el_promotion_id) ? (el_promotion_id) : undefined),\n          promotion_name: (promo.hasOwnProperty('promotion_name')) ? (promo.promotion_name) : ((el_promotion_name) ? (el_promotion_name) : undefined),\n          creative_name: (promo.hasOwnProperty('creative_name')) ? (promo.creative_name) : ((el_creative_name) ? (el_creative_name) : undefined),\n          creative_slot: (promo.hasOwnProperty('creative_slot')) ? (promo.creative_slot) : ((el_creative_slot) ? (el_creative_slot) : undefined),\n          location_id: (promo.hasOwnProperty('location_id')) ? (promo.location_id) : ((el_location_id) ? (el_location_id) : undefined)\n        };\n      });\n    }\n  });\n   }\n  // If item data already exists in Firestore\n  if (itemsArrayInFirestore.indexOf('No item data') === -1) {\n    let input = {\n      'fields': {\n        'expiration': wrapTimestampForFirestore(convertToISODatetime(getTimestampMillis() + TTLmilliseconds)),\n        'id': wrapStringForFirestore(hashedId),\n        'attribution': wrapForFirestore({\n          items_data: uniqueItems.length > 0 ? itemsArrayInFirestore.concat(uniqueItems) : itemsArrayInFirestore,\n          promotion_data: promo_data ? promo_data : promoArrayInFirestore\n        })\n      }\n    };\n    writeToFirestore(fullCollectionPath, input, projectId);\n  }\n  // If item data currently doesn't exist in Firestore\n  else if (itemsArrayInFirestore.indexOf('No item data') > -1) {\n    let input = {\n      'fields': {\n        'expiration': wrapTimestampForFirestore(convertToISODatetime(getTimestampMillis() + TTLmilliseconds)),\n        'id': wrapStringForFirestore(hashedId),\n        'attribution': wrapForFirestore({\n          items_data: uniqueItems.length > 0 ? uniqueItems : itemsArrayInFirestore,\n          promotion_data: promo_data ? promo_data : promoArrayInFirestore\n        })\n      }\n    };\n    writeToFirestore(fullCollectionPath, input, projectId);\n  }\n  else {\n    return 'No data written in Firestore';\n  }\n}\nelse {\n  logToConsole('No data written in Firestore. The reason could be either not selecting in the Tag which information you want to store in Firestore or Ecom Attributor tag is firing on event which doesn\\'t support storing list or promotion data in Firestore.');\n}\n\n// prepare data for deletion from Firestore when purchase event is triggered\nif (event_name === 'purchase' && deleteDataBox) {\n  items.forEach(product => {\n    let item = buildItemsArray(product);\n    itemsFromEvent.push(item);\n  });\n\n  itemsFromEvent.forEach(x => {\n    itemsArrayInFirestore.forEach((i, index) => {\n\n      if (i.item_id === x.item_id) {\n        itemsArrayInFirestore.splice(index, 1);\n      }\n    });\n  });\n\n  // Delete data in Firestore for items that were purchased and keep only item data for items which were not purchased\n  if (itemsArrayInFirestore.length > 0) {\n    let input = {\n      'fields': {\n        'expiration': wrapTimestampForFirestore(convertToISODatetime(getTimestampMillis() + TTLmilliseconds)),\n        'id': wrapStringForFirestore(hashedId),\n        'attribution': wrapForFirestore({\n          items_data: itemsArrayInFirestore,\n          promotion_data: 'No promo data'\n        })\n      }\n    };\n    writeToFirestore(fullCollectionPath, input, projectId);\n    // If there is no item data in FS, just delete promo data    \n  } else {\n    let input = {\n      'fields': {\n        'expiration': wrapTimestampForFirestore(convertToISODatetime(getTimestampMillis() + TTLmilliseconds)),\n        'id': wrapStringForFirestore(hashedId),\n        'attribution': wrapForFirestore({\n          items_data: ['No item data'],\n          promotion_data: 'No promo data'\n        })\n      }\n    };\n    writeToFirestore(fullCollectionPath, input, projectId);\n  }\n}\n\n\n\n// Call data.gtmOnSuccess when the tag is finished.\ndata.gtmOnSuccess();\n\n\n___SERVER_PERMISSIONS___\n\n[\n  {\n    \"instance\": {\n      \"key\": {\n        \"publicId\": \"logging\",\n        \"versionId\": \"1\"\n      },\n      \"param\": [\n        {\n          \"key\": \"environments\",\n          \"value\": {\n            \"type\": 1,\n            \"string\": \"debug\"\n          }\n        }\n      ]\n    },\n    \"clientAnnotations\": {\n      \"isEditedByUser\": true\n    },\n    \"isRequired\": true\n  },\n  {\n    \"instance\": {\n      \"key\": {\n        \"publicId\": \"read_event_data\",\n        \"versionId\": \"1\"\n      },\n      \"param\": [\n        {\n          \"key\": \"keyPatterns\",\n          \"value\": {\n            \"type\": 2,\n            \"listItem\": [\n              {\n                \"type\": 1,\n                \"string\": \"event_name\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"items\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"index\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"item_list_name\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"item_list_id\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"location_id\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"promotion_id\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"promotion_name\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"creative_name\"\n              },\n              {\n                \"type\": 1,\n                \"string\": \"creative_slot\"\n              }\n            ]\n          }\n        },\n        {\n          \"key\": \"eventDataAccess\",\n          \"value\": {\n            \"type\": 1,\n            \"string\": \"specific\"\n          }\n        }\n      ]\n    },\n    \"clientAnnotations\": {\n      \"isEditedByUser\": true\n    },\n    \"isRequired\": true\n  },\n  {\n    \"instance\": {\n      \"key\": {\n        \"publicId\": \"send_http\",\n        \"versionId\": \"1\"\n      },\n      \"param\": [\n        {\n          \"key\": \"allowedUrls\",\n          \"value\": {\n            \"type\": 1,\n            \"string\": \"any\"\n          }\n        }\n      ]\n    },\n    \"clientAnnotations\": {\n      \"isEditedByUser\": true\n    },\n    \"isRequired\": true\n  },\n  {\n    \"instance\": {\n      \"key\": {\n        \"publicId\": \"use_google_credentials\",\n        \"versionId\": \"1\"\n      },\n      \"param\": [\n        {\n          \"key\": \"allowedScopes\",\n          \"value\": {\n            \"type\": 2,\n            \"listItem\": [\n              {\n                \"type\": 1,\n                \"string\": \"https://www.googleapis.com/auth/datastore\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    \"clientAnnotations\": {\n      \"isEditedByUser\": true\n    },\n    \"isRequired\": true\n  }\n]\n\n\n___TESTS___\n\nscenarios: []\n\n\n___NOTES___\n\n\n\n\n"
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "templateId": "114",
+                "name": "Ecom Attributor - Identifier hasher",
+                "fingerprint": "1710511137676",
+                "templateData": "___TERMS_OF_SERVICE___\n\nBy creating or modifying this file you agree to Google Tag Manager's Community\nTemplate Gallery Developer Terms of Service available at\nhttps://developers.google.com/tag-manager/gallery-tos (or such other URL as\nGoogle may provide), as modified from time to time.\n\n\n___INFO___\n\n{\n  \"type\": \"MACRO\",\n  \"id\": \"cvt_temp_public_id\",\n  \"version\": 1,\n  \"securityGroups\": [],\n  \"displayName\": \"Ecom Attributor - Identifier hasher\",\n  \"description\": \"This Template is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor\",\n  \"containerContexts\": [\n    \"SERVER\"\n  ]\n}\n\n\n___TEMPLATE_PARAMETERS___\n\n[\n  {\n    \"type\": \"LABEL\",\n    \"name\": \"info\",\n    \"displayName\": \"Item \\u0026 Promo data is stored in Firestore for each user. Therefore, it is required to provide user/device identifier which will be used to store data in Firestore. For example, this can be GA client_id or user_id. \\n\\u003c/br\\u003e\\u003c/br\\u003e\\nIt is recommended to use client_id and by default when you import solution it is configured to use client_id. In case if you want to use user_id or some other identifier, it is important to keep in mind that it needs to be available on every ecommerce event!\\n\\u003c/br\\u003e For example, if you use user_id as identifier, and it is not available on select_item event, information won\\u0027t be stored in Firestore and it won\\u0027t be sent to GA4 with later ecommerce events.\\n\\u003c/br\\u003e\\u003c/br\\u003e\\n\\u003cb\\u003eEncoding:\\u003c/b\\u003e Calculates and returns the SHA-256 digest of the input, encoded in hex.\\n\\u003c/br\\u003e\\u003c/br\\u003e\"\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"identifier\",\n    \"displayName\": \"Provide variable you would like to hash (it is recommended to use client_id)\",\n    \"simpleValueType\": true,\n    \"valueValidators\": [\n      {\n        \"type\": \"NON_EMPTY\"\n      }\n    ],\n    \"help\": \"Input you provide for this variable will be hashed and stored in Firestore. It will be used to store Item list and Promotion data per user/device basis.\\u003cbr/\\u003e\\u003cbr/\\u003e\\nFor example, if you provide client_id as input for this variable, client_id will be hashed and used to store List and Promotion data per each client_id.\\n\\u003cbr/\\u003e\\u003cbr/\\u003e\"\n  }\n]\n\n\n___SANDBOXED_JS_FOR_SERVER___\n\n/**\n * @license\n * Copyright 2024 Google LLC\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\nconst sha256Sync = require('sha256Sync');\nconst getEventData = require('getEventData');\nconst input = data.identifier.toString();\n\nreturn sha256Sync(input, {outputEncoding: 'hex'});\n\n\n___SERVER_PERMISSIONS___\n\n[\n  {\n    \"instance\": {\n      \"key\": {\n        \"publicId\": \"read_event_data\",\n        \"versionId\": \"1\"\n      },\n      \"param\": [\n        {\n          \"key\": \"eventDataAccess\",\n          \"value\": {\n            \"type\": 1,\n            \"string\": \"any\"\n          }\n        }\n      ]\n    },\n    \"clientAnnotations\": {\n      \"isEditedByUser\": true\n    },\n    \"isRequired\": true\n  }\n]\n\n\n___TESTS___\n\nscenarios: []\n\n\n___NOTES___\n\n\n\n\n"
+            }
+        ],
+        "transformation": [
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "transformationId": "90",
+                "name": "Ecom Attributor - Augment - Item List data",
+                "type": "tf_augment_event",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "matchingConditionsEnabled",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "allTagsExcept",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "booleanExpressionString"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "augmentEventTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramName",
+                                        "value": "items"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramValue",
+                                        "value": "{{Ecom Attributor - Items array}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "affectedTags"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "affectedTagTypes",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "tagType",
+                                        "value": "sgtmgaaw"
+                                    },
+                                    {
+                                        "type": "LIST",
+                                        "key": "tagTypeExceptions"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "matchingConditionsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "variableName",
+                                        "value": "Event Name"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "variableReference",
+                                        "value": "{{Event Name}}"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "expressionType",
+                                        "value": "REGEX"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "expressionValue",
+                                        "value": "^(select_item|view_item|add_to_cart|remove_from_cart|add_to_wishlist|view_cart|begin_checkout|add_shipping_info|add_payment_info|purchase)$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1710858830821",
+                "parentFolderId": "116",
+                "notes": "This Transformation is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor"
+            },
+            {
+                "accountId": "6197971020",
+                "containerId": "166878305",
+                "transformationId": "108",
+                "name": "Ecom Attributor - Augment - Promotion data",
+                "type": "tf_augment_event",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "matchingConditionsEnabled",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "allTagsExcept",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "booleanExpressionString"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "augmentEventTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramName",
+                                        "value": "creative_name"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramValue",
+                                        "value": "{{FS Lookup - creative_name}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramName",
+                                        "value": "creative_slot"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramValue",
+                                        "value": "{{FS Lookup - creative_slot}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramName",
+                                        "value": "promotion_id"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramValue",
+                                        "value": "{{FS Lookup - promotion_id}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramName",
+                                        "value": "promotion_name"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "paramValue",
+                                        "value": "{{FS Lookup - promotion_name}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "affectedTags"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "affectedTagTypes",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "tagType",
+                                        "value": "sgtmgaaw"
+                                    },
+                                    {
+                                        "type": "LIST",
+                                        "key": "tagTypeExceptions"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "matchingConditionsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "variableName",
+                                        "value": "Event Name"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "variableReference",
+                                        "value": "{{Event Name}}"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "expressionType",
+                                        "value": "REGEX"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "expressionValue",
+                                        "value": "^(view_item_list|select_item|view_item|add_to_cart|remove_from_cart|add_to_wishlist|view_cart|begin_checkout|add_shipping_info|add_payment_info|purchase)$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1710858841590",
+                "parentFolderId": "116",
+                "notes": "This Transformation is part of Ecom Attributor custom solution. Reference: https://github.com/google/ga4-ecom-attributor"
+            }
+        ]
+    }
+}
