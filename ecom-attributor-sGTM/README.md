@@ -19,7 +19,7 @@ JSON file contains tags and custom templates that needs to be imported and confi
 Follow these steps to properly set up the solution:
 * Join [this group](https://groups.google.com/g/ga4-ecom-attributor) to get access to JSON file (any potential updates will be published in the group)
 * [Download the JSON file](https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-sGTM/ecom-attributor-sGTM.json)
-* Follow implementation guide (explained below) or download [PDF file with step by step instructions](https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-web-GTM/ecom-attributor-web-GTM-implementation-guide.pdf)
+* Follow implementation guide (explained below) or download [PDF file with step by step instructions](https://github.com/google/ga4-ecom-attributor/blob/main/ecom-attributor-sGTM/ecom-attributor-sGTM-implementation-guide.pdf)
 
 
 
